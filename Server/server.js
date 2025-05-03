@@ -1,7 +1,8 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import { connectDB } from "./dbconnect.js";
+import  connectDB  from "./controllers/dbconnect.js";
+import users from "./controllers/userRoutes.js";
 
 dotenv.config();
 connectDB()
@@ -12,12 +13,9 @@ const corsOption = {
     origin : ["http://localhost:5173"]
 }
 
-app.use(cors());
+app.use(cors(corsOption));
 app.use(express.json());
-
-app.get("/", (req, res) => {
-    res.send("Server is started");
-});
+app.use(users)
 
 app.listen(PORT, () => {
     console.log(`Server listening on http://localhost:${PORT}`);
