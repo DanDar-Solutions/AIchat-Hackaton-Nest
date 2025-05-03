@@ -41,7 +41,6 @@ body {
   background-color: var(--primary-bg);
   color: var(--text-color);
   line-height: 1.5;
-  background-image: linear-gradient(to bottom right, #0a0a16, #16161d, #1a1a21);
   min-height: 100vh;
 }
 

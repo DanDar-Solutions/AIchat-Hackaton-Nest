@@ -1,0 +1,13 @@
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center);
+  color: white;
+  font-size: 2.5em;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  z-index: 1000;
+  letter-spacing: 2px;
+} 

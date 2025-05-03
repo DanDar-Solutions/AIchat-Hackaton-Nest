@@ -10,7 +10,7 @@ const Header = () => {
       </div>
       
       <div className="header-right">
-        <button className="button-new">Шинэ</button>
+        <button className="button-new">Шинэ чат</button>
       </div>
     </header>
   );

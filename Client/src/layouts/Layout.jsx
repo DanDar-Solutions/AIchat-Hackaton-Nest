@@ -5,7 +5,6 @@ const Layout = ({ children }) => {
   const [theme, setTheme] = useState('dark');
   
   useEffect(() => {
-    // Apply theme class to body
     document.body.className = theme === 'light' ? 'light-mode' : '';
   }, [theme]);
   
@@ -16,7 +15,6 @@ const Layout = ({ children }) => {
   return (
     <div className="layout">
       
-      {/* Top navigation */}
       <div className="top-nav">
         <div className="top-left">
           <button className="outer-button">
@@ -24,7 +22,7 @@ const Layout = ({ children }) => {
               <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               <path d="M9 22V12H15V22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            манай баг
+            home
           </button>
         </div>
         
@@ -34,12 +32,10 @@ const Layout = ({ children }) => {
         </div>
       </div>
       
-      {/* Main card */}
       <div className="main-card card">
         {children}
       </div>
       
-      {/* Bottom controls */}
       <div className="bottom-controls">
         <div className="bottom-left">
           <button 
