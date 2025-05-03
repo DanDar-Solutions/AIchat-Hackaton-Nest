@@ -6,6 +6,7 @@ import Layout from './layouts/Layout';
 import LoadingScreen from './components/laoding/load';
 import Bg from './background/bg';
 import './index.css';
+import Auth from "./components/Auth/auth.jsx";
 
 function App() {  
   const [contentLoaded, setContentLoaded] = useState(false);
@@ -42,8 +43,7 @@ function App() {
                 </Layout>
               } 
             />
-            <Route path="/login" element={<Navigate to="/login_signup/index.html" />} />
-            <Route path="/signup" element={<Navigate to="/login_signup/index.html" />} />
+            <Route path="/login" element={<Auth/>} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </BrowserRouter>

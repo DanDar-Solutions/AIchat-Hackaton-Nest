@@ -24,7 +24,7 @@ const Header = () => {
       </div>
       
       <div className="header-right">
-        <Link to="/signup" className="nav-button signup-btn">Бүртгүүлэх</Link>
+        <Link to="/login" className="nav-button signup-btn">Бүртгүүлэх</Link>
       </div>
     </div>
   );
