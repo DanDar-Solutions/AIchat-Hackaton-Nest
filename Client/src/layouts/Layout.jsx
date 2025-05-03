@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import Background from '../background/Background';
 import './Layout.css';
 
 const Layout = ({ children }) => {
@@ -16,7 +15,6 @@ const Layout = ({ children }) => {
   
   return (
     <div className="layout">
-      <Background />
       
       {/* Top navigation */}
       <div className="top-nav">
