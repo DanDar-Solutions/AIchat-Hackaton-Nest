@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './Auth.module.css';
+import Header from "../Header/Header.jsx";
 
 
 function Auth(){
@@ -75,7 +76,8 @@ function Auth(){
     }
   };
 
-  return (
+  return (<>
+    <Header/>
     <div className={styles.body}>
       <div className={`${styles.container} ${isRightPanelActive ? styles.rightPanelActive : ''}`} id="container">
         <div className={`${styles.formContainer} ${styles.signUpContainer}`}>
@@ -119,7 +121,7 @@ function Auth(){
               <label className={styles.label} htmlFor="password">Нууц үг</label>
             </div>
 
-            <Link to="/forgot-password" className={styles.a}>Нууц үгээ мартсан уу?</Link>
+            <Link to="/foget" className={styles.a}>Нууц үгээ мартсан уу?</Link>
 
             <button className={styles.button} type="submit">Нэвтрэх</button>
           </form>
@@ -140,6 +142,7 @@ function Auth(){
         </div>
       </div>
     </div>
+    </>
   );
 };
 

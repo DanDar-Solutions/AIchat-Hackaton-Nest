@@ -7,6 +7,7 @@ import LoadingScreen from './components/laoding/load';
 import Bg from './background/bg';
 import './index.css';
 import Auth from "./components/Auth/auth.jsx";
+import ForgotPassword from "./components/Auth/forgotpassword.jsx";
 
 function App() {  
   const [contentLoaded, setContentLoaded] = useState(false);
@@ -27,9 +28,7 @@ function App() {
       {contentLoaded && (
         <BrowserRouter>
           <Routes>
-            <Route 
-              path="/" 
-              element={
+            <Route path="/" element={
                 <Layout>
                   <Home />
                 </Layout>
@@ -44,6 +43,7 @@ function App() {
               } 
             />
             <Route path="/login" element={<Auth/>} />
+            <Route path="/foget" element={<ForgotPassword/>} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </BrowserRouter>
