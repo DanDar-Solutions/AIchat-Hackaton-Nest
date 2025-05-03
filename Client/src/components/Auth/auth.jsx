@@ -31,7 +31,7 @@ function Auth(){
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:8000/login', {
+      const response = await fetch('https://hackathon-2w3b.onrender.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ function Auth(){
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:8000/users', {
+      const response = await fetch('https://hackathon-2w3b.onrender.com/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

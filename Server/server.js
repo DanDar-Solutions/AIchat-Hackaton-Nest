@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 8000;
 
 // allowed CORS connections
 const corsOption = {
-    origin: ["http://localhost:5173"]
+    origin: ["http://localhost:5173", "https://your-vercel-app-url.vercel.app"]
 }
 
 // Middlewares

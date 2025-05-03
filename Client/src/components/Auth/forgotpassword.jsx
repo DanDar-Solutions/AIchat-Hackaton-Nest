@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './ForgotPassword.module.css';
+import styles from './forgotpassword.module.css';
 
 const ForgotPassword = () => {
   const [formData, setFormData] = useState({
@@ -28,7 +28,7 @@ const ForgotPassword = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:8000/reset-password', {
+      const response = await fetch('https://hackathon-2w3b.onrender.com/reset-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

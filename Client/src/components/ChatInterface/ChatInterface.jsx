@@ -81,7 +81,7 @@ const ChatInterface = () => {
     setLoading(true);
     
     try {
-      const response = await fetch('http://localhost:8000/api/openai/chat', {
+      const response = await fetch('https://hackathon-2w3b.onrender.com/api/openai/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
