@@ -194,9 +194,7 @@
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  text-align: center;
   border: 1px solid transparent;
 }
 
@@ -205,6 +203,8 @@
   border-color: #4776E6;
 }
 
+/* Removed feature-icon styles */
+/* 
 .feature-icon {
   width: 42px;
   height: 42px;
@@ -220,6 +220,7 @@
   width: 22px;
   height: 22px;
 }
+*/
 
 .feature-nav-item h3 {
   font-size: 1rem;
