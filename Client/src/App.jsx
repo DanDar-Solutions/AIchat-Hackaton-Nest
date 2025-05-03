@@ -1,6 +1,6 @@
 import ChatInterface from './components/ChatInterface/ChatInterface';
 import Layout from './layouts/Layout';
-import './styles/global.css';
+import './index.css';
 
 function App() {
   return (
