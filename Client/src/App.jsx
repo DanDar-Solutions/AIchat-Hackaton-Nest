@@ -4,9 +4,10 @@ import ChatInterface from './components/ChatInterface/ChatInterface';
 import Home from './components/home/Home';
 import Layout from './layouts/Layout';
 import LoadingScreen from './components/laoding/load';
+import Bg from './background/bg';
 import './index.css';
 
-function App() {
+function App() {  
   const [contentLoaded, setContentLoaded] = useState(false);
   
   useEffect(() => {
@@ -19,6 +20,7 @@ function App() {
   
   return (
     <>
+      <Bg />
       <LoadingScreen />
       
       {contentLoaded && (

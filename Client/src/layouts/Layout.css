@@ -7,7 +7,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-color: #121212;
+  z-index: 1;
 }
 
 .main-card {
@@ -20,13 +20,14 @@
   flex-direction: column;
   position: relative;
   transition: all 0.3s ease;
-  background-color: rgba(25, 26, 28, 0.7);
+  background-color: rgba(25, 26, 28, 0.6);
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
 }
 
 .main-card::-webkit-scrollbar {
@@ -34,11 +35,16 @@
 }
 
 .main-card:hover {
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
-body.light-mode .main-card {
-  background-color: rgba(255, 255, 255, 0.8);
+html.dark .main-card {
+  background-color: rgba(25, 26, 28, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+html:not(.dark) .main-card {
+  background-color: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
@@ -75,12 +81,12 @@ body.light-mode .main-card {
   transform: translateY(-2px);
 }
 
-body.light-mode .icon-button {
+html:not(.dark) .icon-button {
   background-color: rgba(200, 200, 200, 0.4);
   color: rgba(0, 0, 0, 0.8);
 }
 
-body.light-mode .icon-button:hover {
+html:not(.dark) .icon-button:hover {
   background-color: rgba(200, 200, 200, 0.7);
 }
 
@@ -98,4 +104,4 @@ body.light-mode .icon-button:hover {
     margin: 10px auto 0;
     border-radius: 10px;
   }
-} 
+}

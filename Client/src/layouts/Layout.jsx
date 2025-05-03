@@ -1,17 +1,22 @@
 import { useState, useEffect } from 'react';
 import Header from '../components/Header/Header';
+import { toggleTheme } from '../background/bg';
 import './Layout.css';
 
 const Layout = ({ children }) => {
-  const [theme, setTheme] = useState('dark');
+  const [isDarkMode, setIsDarkMode] = useState(document.documentElement.classList.contains('dark'));
   
   useEffect(() => {
-    document.body.className = theme === 'light' ? 'light-mode' : '';
-  }, [theme]);
-  
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
+    const handleThemeChange = () => {
+      setIsDarkMode(document.documentElement.classList.contains('dark'));
+    };
+    
+    document.addEventListener('themeChanged', handleThemeChange);
+    
+    return () => {
+      document.removeEventListener('themeChanged', handleThemeChange);
+    };
+  }, []);
   
   return (
     <div className="layout">
@@ -27,9 +32,9 @@ const Layout = ({ children }) => {
           <button 
             className="icon-button"
             onClick={toggleTheme}
-            title={theme === 'dark' ? 'Гэрэл горим руу шилжих' : 'Харанхуй горим руу шилжих'}
+            title={isDarkMode ? 'Гэрэл горим руу шилжих' : 'Харанхуй горим руу шилжих'}
           >
-            {theme === 'dark' ? (
+            {isDarkMode ? (
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M12 2V4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
