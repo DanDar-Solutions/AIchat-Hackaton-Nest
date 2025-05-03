@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
-import ChatMessage from '../ChatMessage/ChatMessage';
-import InputArea from '../InputArea/InputArea';
-import Header from '../Header/Header';
+import ChatMessage from './ChatMessage/ChatMessage';
+import InputArea from './InputArea/InputArea';
+import Header from './Header/Header';
 import './ChatInterface.css';
 
 const ChatInterface = () => {

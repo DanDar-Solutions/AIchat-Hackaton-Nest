@@ -53,7 +53,7 @@ const InputArea = ({ onSendMessage, loading }) => {
         </button>
       </form>
       <div className="input-footer">
-        <p>Code Dex-н эхний хувилбар.</p>
+        <p>demo хувилбар</p>
       </div>
     </div>
   );
