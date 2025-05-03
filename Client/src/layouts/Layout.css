@@ -1,0 +1,81 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  margin-bottom: 20px;
+  z-index: 10;
+}
+
+.top-left, .top-right {
+  display: flex;
+  gap: 12px;
+}
+
+.main-card {
+  flex: 1;
+  height: calc(100vh - 180px);
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s ease;
+  background-color: rgba(32, 33, 35, 0.7);
+}
+
+.main-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px);
+}
+
+body.light-mode .main-card {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.bottom-controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  margin-top: 20px;
+  z-index: 10;
+}
+
+.bottom-left {
+  display: flex;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .layout {
+    padding: 10px;
+  }
+  
+  .top-nav, .bottom-controls {
+    padding: 8px;
+  }
+  
+  .main-card {
+    height: calc(100vh - 160px);
+  }
+  
+  .top-right {
+    gap: 8px;
+  }
+  
+  .outer-button {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+} 

@@ -1,0 +1,100 @@
+.chat-message {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  margin: 12px 0;
+  border-radius: var(--radius-large);
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.chat-message.user {
+  background-color: var(--button-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chat-message.bot {
+  background-color: transparent;
+}
+
+.chat-message:hover {
+  transform: translateX(2px);
+}
+
+.message-content {
+  display: flex;
+  gap: 16px;
+  flex: 1;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  background-color: #444;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.bot .avatar {
+  background-color: var(--green-accent);
+}
+
+.message-text {
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  max-width: calc(100% - 50px);
+  color: var(--text-color);
+  padding: 4px 0;
+}
+
+.message-actions {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.chat-message:hover .message-actions {
+  opacity: 1;
+}
+
+.copy-button {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  border-radius: var(--radius-full);
+  transition: all 0.2s ease;
+}
+
+.copy-button:hover {
+  background-color: var(--hover-bg);
+  color: var(--text-color);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .message-actions {
+    opacity: 1;
+  }
+  
+  .copy-button {
+    padding: 4px;
+  }
+  
+  .copy-button span {
+    display: none;
+  }
+} 
