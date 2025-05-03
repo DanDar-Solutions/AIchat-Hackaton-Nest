@@ -1,11 +1,12 @@
-import ChatInterface from './components/ChatInterface';
-import './styles/styles.css';
+import ChatInterface from './components/ChatInterface/ChatInterface';
+import Layout from './layouts/Layout';
+import './styles/global.css';
 
 function App() {
   return (
-    <div className="app">
+    <Layout>
       <ChatInterface />
-    </div>
+    </Layout>
   );
 }
 
