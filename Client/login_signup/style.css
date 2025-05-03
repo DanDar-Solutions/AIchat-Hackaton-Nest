@@ -261,22 +261,24 @@ input:not(:placeholder-shown) + label {
 
 .forgot-password-container {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    opacity: 0;
-    z-index: 1;
-    transition: all 0.6s ease-in-out;
-    display: none; /* Эхэндээ далд байна */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px; /* 30px-ээр багасгасан (өмнө нь 430-450 байж магад) */
+    background-color: #fff;
+    padding: 30px 40px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.2),
+                0 10px 10px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    z-index: 999;
+    display: none;
 }
 
 .container.forgot-active .forgot-password-container {
     display: block;
-    opacity: 1;
-    z-index: 5;
 }
 
+/* Нууц үг сэргээх үед бусад form-уудыг нуух */
 .container.forgot-active .sign-in-container,
 .container.forgot-active .sign-up-container,
 .container.forgot-active .overlay-container {
