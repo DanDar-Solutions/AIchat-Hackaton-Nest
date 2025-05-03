@@ -12,6 +12,12 @@
   padding: 0 16px;
   display: flex;
   flex-direction: column;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.chat-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .empty-chat {
