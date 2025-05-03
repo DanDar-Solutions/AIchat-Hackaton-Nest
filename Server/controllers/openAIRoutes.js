@@ -6,7 +6,7 @@ dotenv.config();
 
 const router = express.Router();
 
-const OPENROUTER_API_KEY = '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';
+const OPENROUTER_API_KEY = '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';
 const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
 
 const responseCache = new Map();
