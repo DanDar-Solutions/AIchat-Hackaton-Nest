@@ -1,35 +1,31 @@
-/**
- * Express сервер
- * MongoDB холболт болон API route-уудыг зохицуулна
- */
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./controllers/dbconnect.js";
 import users from "./controllers/userRoutes.js";
 
-// .env файлаас тохиргоог уншиж авах
+//  read .env
 dotenv.config();
 
-// MongoDB-тэй холбогдох
+// connect to mongodb
 connectDB()
 
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-// CORS тохиргоо - зөвшөөрөгдсөн frontend домэйнууд
+// allowed CORS connections
 const corsOption = {
     origin: ["http://localhost:5173"]
 }
 
-// Middleware-үүд
+// Middlewares
 app.use(cors(corsOption));
 app.use(express.json());
 
-// API маршрутууд
+// API 
 app.use(users)
 
-// Сервер асаах
+// start server     cdm:npm run dev
 app.listen(PORT, () => {
     console.log(`Сервер ажиллаж эхэллээ: http://localhost:${PORT}`);
 });

@@ -1,7 +1,3 @@
-/**
- * Хэрэглэгчийн өгөгдлийн модель
- * Хэрэглэгчийн мэдээлэл болон хичээлийн явцыг хадгална
- */
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
@@ -37,5 +33,5 @@ const userSchema = new mongoose.Schema({
   versionKey: false
 });
 
-// Хэрэглэгчийн моделийг экспортлох
+// export model
 export default mongoose.model("User", userSchema);
