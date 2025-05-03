@@ -1,16 +1,16 @@
 import express from 'express';
 import axios from 'axios';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const router = express.Router();
 
-// OpenRouter API key and configuration
-const OPENROUTER_API_KEY = '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';
+const OPENROUTER_API_KEY = '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';
 const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
 
-// Simple in-memory cache to avoid repeated identical queries
 const responseCache = new Map();
 
-// System prompt for coding education
 const SYSTEM_PROMPT = `You are a helpful coding tutor specializing in web development (HTML, CSS, JavaScript, React, Node.js).
 Give concise, beginner-friendly explanations with small code examples when appropriate.
 Always format code examples with triple backticks and language identifier like this:
@@ -35,50 +35,55 @@ router.post('/api/openai/chat', async (req, res) => {
     const { message } = req.body;
     console.log('Received OpenRouter chat request with message:', message);
     
-    // Check cache first
+    if (!message) {
+      return res.status(400).json({ 
+        error: 'Missing message',
+        response: 'Please provide a message to get a response.'
+      });
+    }
+    
     if (responseCache.has(message)) {
       console.log('Cache hit for query:', message);
       return res.json({ response: responseCache.get(message) });
     }
     
-    // Setup API request
     const requestData = {
       model: 'openai/gpt-3.5-turbo', // Using a fast and reliable model
       messages: [
         { role: 'system', content: SYSTEM_PROMPT },
         { role: 'user', content: message }
       ],
-      temperature: 0.5,
-      max_tokens: 300,
+      temperature: 0.7,
+      max_tokens: 500,
       headers: {
-        'HTTP-Referer': 'https://codedex.com', // Replace with your actual domain
+        'HTTP-Referer': 'https://codedex.com',
         'X-Title': 'CodeDex AI Tutor'
       }
     };
     
-    // Make an API call to OpenRouter
     console.log('Sending request to OpenRouter API...');
     const response = await axios.post(OPENROUTER_API_URL, requestData, {
       headers: {
         'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
         'Content-Type': 'application/json'
-      }
+      },
+      timeout: 30000
     });
     
-    // Extract and clean the response
+    if (!response.data || !response.data.choices || !response.data.choices[0] || !response.data.choices[0].message) {
+      throw new Error('Invalid response format from OpenRouter API');
+    }
+    
     const aiResponse = response.data.choices[0].message.content.trim();
     console.log('Received response from OpenRouter API:', aiResponse.substring(0, 100) + '...');
     
-    // Cache the response
     responseCache.set(message, aiResponse);
     
-    // Send response to client
     return res.json({ response: aiResponse });
     
   } catch (error) {
     console.error('Error in OpenRouter chat:', error);
     
-    // Return a useful error message
     let errorMessage = 'An error occurred while processing your request.';
     
     if (error.response) {

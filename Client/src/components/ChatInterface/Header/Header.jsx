@@ -6,12 +6,9 @@ const Header = ({ onNewChat }) => {
 
   const handleNewChat = () => {
     if (typeof onNewChat === 'function') {
-      // If onNewChat prop exists, call it
       onNewChat();
     } else {
-      // Otherwise, just refresh the page
       navigate('/chat', { replace: true });
-      // Reload the page after a short delay
       setTimeout(() => {
         window.location.reload();
       }, 100);

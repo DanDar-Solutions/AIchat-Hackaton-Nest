@@ -37,7 +37,6 @@
   border-color: #909090;
 }
 
-/* Hide line numbers for small screens */
 @media (max-width: 600px) {
   .linenumber {
     display: none;

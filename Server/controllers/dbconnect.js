@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-/* MongoDB өгөгдлийн сантай холбогдох функц */
 const connectDB = async () => {
     try {
         if (!process.env.MONGO_URI) {

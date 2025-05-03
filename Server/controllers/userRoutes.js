@@ -1,13 +1,11 @@
 import express from 'express';
-import bcrypt from 'bcryptjs'; // bcrypt for hashing passwords
+import bcrypt from 'bcryptjs';
 import User from '../models/userSchema.js';
 
 const userRoutes = express.Router(); // Create a router
 
-// POST route to register a new user
 userRoutes.route("/users").post(async (request, response) => {
     try {
-        // if email is available
         const takenEmail = await User.findOne({ email: request.body.email });
 
         if (takenEmail) { // email is taken 

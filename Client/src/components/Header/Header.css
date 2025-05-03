@@ -27,7 +27,7 @@
   backdrop-filter: blur(10px);
 }
 
-/* Dark mode styles (default) */
+/* Dark mode default */
 html.dark .nav-button {
   color: rgba(255, 255, 255, 0.8);
   background-color: rgba(0, 0, 0, 0.3);
@@ -53,7 +53,7 @@ html.dark .nav-button.active {
   font-weight: 500;
 }
 
-/* Light mode styles */
+/* Light mode */
 html:not(.dark) .nav-button {
   color: rgba(0, 0, 0, 0.8);
   background-color: rgba(200, 200, 200, 0.4);
@@ -65,7 +65,6 @@ html:not(.dark) .nav-button.active {
   color: rgba(0, 0, 0, 0.9);
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .header {
     padding: 8px;

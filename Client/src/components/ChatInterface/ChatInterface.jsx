@@ -4,7 +4,6 @@ import InputArea from './InputArea/InputArea';
 import Header from './Header/Header';
 import './ChatInterface.css';
 
-// Define a larger set of suggested topics
 const ALL_TOPICS = [
   { id: 1, text: "HTML-н тухай зааж өгөөч" },
   { id: 2, text: "CSS Flex-box тухай" },
@@ -28,7 +27,6 @@ const ChatInterface = () => {
   const messagesEndRef = useRef(null);
   const loadingTimerRef = useRef(null);
 
-  // Get random suggested topics
   const getRandomTopics = (count = 3) => {
     // Shuffle the topics array and take the first 'count' items
     return [...ALL_TOPICS]
@@ -36,22 +34,18 @@ const ChatInterface = () => {
       .slice(0, count);
   };
 
-  // Initialize with random topics
   useEffect(() => {
     setSuggestedTopics(getRandomTopics());
   }, []);
 
-  // Refresh suggested topics
   const refreshTopics = () => {
     setSuggestedTopics(getRandomTopics());
   };
 
-  // Scroll to bottom whenever messages change
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  // Timer for long-running requests
   useEffect(() => {
     if (loading) {
       setLoadingTime(0);
@@ -66,20 +60,17 @@ const ChatInterface = () => {
     return () => clearInterval(loadingTimerRef.current);
   }, [loading]);
 
-  // Function to clear the chat
   const clearChat = () => {
     setMessages([]);
     setLoading(false);
     clearInterval(loadingTimerRef.current);
     setLoadingTime(0);
-    // Refresh topics when starting a new chat
     refreshTopics();
   };
 
   const handleSendMessage = async (userInput) => {
     if (!userInput.trim()) return;
     
-    // Add user message
     const userMessage = {
       id: Date.now(),
       sender: 'user',
@@ -90,7 +81,6 @@ const ChatInterface = () => {
     setLoading(true);
     
     try {
-      // Make an API call to our backend with OpenRouter
       const response = await fetch('http://localhost:8000/api/openai/chat', {
         method: 'POST',
         headers: {
@@ -115,7 +105,6 @@ const ChatInterface = () => {
     } catch (error) {
       console.error('Error sending message:', error);
       
-      // Add error message
       const errorMessage = {
         id: Date.now() + 1,
         sender: 'bot',

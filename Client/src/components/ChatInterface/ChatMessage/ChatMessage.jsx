@@ -7,20 +7,16 @@ const ChatMessage = ({ message }) => {
   const [copied, setCopied] = useState(false);
   const [parsedContent, setParsedContent] = useState([]);
   
-  // Parse message text to find code blocks
   useEffect(() => {
     if (!message.text) return;
     
-    // Regex to match code blocks with optional language specification
-    // Format: ```language\ncode\n```
     const codeBlockRegex = /```(\w+)?\n([\s\S]*?)```/g;
     let matches = [];
     let lastIndex = 0;
     let match;
     
-    // Find all code blocks
+
     while ((match = codeBlockRegex.exec(message.text)) !== null) {
-      // Add text before the code block
       if (match.index > lastIndex) {
         matches.push({
           type: 'text',
@@ -28,7 +24,6 @@ const ChatMessage = ({ message }) => {
         });
       }
       
-      // Add the code block
       matches.push({
         type: 'code',
         language: match[1] || 'plaintext',
@@ -39,7 +34,6 @@ const ChatMessage = ({ message }) => {
       lastIndex = match.index + match[0].length;
     }
     
-    // Add remaining text after the last code block
     if (lastIndex < message.text.length) {
       matches.push({
         type: 'text',
@@ -47,7 +41,6 @@ const ChatMessage = ({ message }) => {
       });
     }
     
-    // If no code blocks were found, use the entire message as text
     if (matches.length === 0) {
       matches.push({
         type: 'text',
@@ -58,9 +51,7 @@ const ChatMessage = ({ message }) => {
     setParsedContent(matches);
   }, [message.text]);
   
-  // Try to extract a title from the code block
   const getCodeTitle = (language, code) => {
-    // Look for common patterns like HTML/CSS/JS file names
     if (language === 'html') return 'html';
     if (language === 'css') return 'css';
     if (language === 'javascript' || language === 'js') return 'javascript';
@@ -84,7 +75,6 @@ const ChatMessage = ({ message }) => {
           {parsedContent.map((block, index) => (
             block.type === 'text' ? (
               <div key={index} className="text-block">
-                {/* Split by newlines and add <br> tags */}
                 {block.content.split('\n').map((line, i) => (
                   <span key={i}>
                     {line}

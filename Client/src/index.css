@@ -119,17 +119,14 @@ pre code {
   display: none;
 }
 
-/* For Firefox */
 * {
   scrollbar-width: none;
 }
 
-/* For IE and Edge */
 * {
   -ms-overflow-style: none;
 }
 
-/* Utils */
 .hidden {
   display: none !important;
 }
