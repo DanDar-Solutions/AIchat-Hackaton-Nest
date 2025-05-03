@@ -1,6 +1,23 @@
+import { useNavigate } from 'react-router-dom';
 import './Header.css';
 
-const Header = () => {
+const Header = ({ onNewChat }) => {
+  const navigate = useNavigate();
+
+  const handleNewChat = () => {
+    if (typeof onNewChat === 'function') {
+      // If onNewChat prop exists, call it
+      onNewChat();
+    } else {
+      // Otherwise, just refresh the page
+      navigate('/chat', { replace: true });
+      // Reload the page after a short delay
+      setTimeout(() => {
+        window.location.reload();
+      }, 100);
+    }
+  };
+
   return (
     <header className="header">
       <div className="header-left">
@@ -10,7 +27,7 @@ const Header = () => {
       </div>
       
       <div className="header-right">
-        <button className="button-new">Шинэ чат</button>
+        <button className="button-new" onClick={handleNewChat}>Шинэ чат</button>
       </div>
     </header>
   );

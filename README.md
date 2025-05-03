@@ -22,7 +22,7 @@ An AI-powered beginner coding platform inspired by CodeCademy, designed to help 
 | Area | Tool |
 |------|------|
 | Frontend | React.js + CSS |
-| AI Logic | [OpenRouter](https://openrouter.ai/) (free GPT access) or pre-defined question flows |
+| AI Logic | [OpenRouter API](https://openrouter.ai/) (access to advanced AI models) |
 | Icons | [Lucide Icons](https://lucide.dev/) |
 | Fonts | [Google Fonts](https://fonts.google.com/) |
 | Hosting (free) | Vercel |
@@ -31,10 +31,10 @@ An AI-powered beginner coding platform inspired by CodeCademy, designed to help 
 
 ## 🧠 Core Features
 
-### ✅ 1. AI Assistant (Free/Fake)
+### ✅ 1. AI Assistant (Powered by OpenRouter)
 - Simple text input: "I want to learn HTML"
 - Responds with friendly explanation + learning path
-- Uses **predefined decision tree** or free GPT API if available
+- Uses **OpenRouter API** to access powerful AI models
 
 ### ✅ 2. Interactive Lessons
 
@@ -51,7 +51,7 @@ An AI-powered beginner coding platform inspired by CodeCademy, designed to help 
 
 - Save what user has completed
 - Resume where user left off
-- Show timeline: “You finished 3/10 lessons”
+- Show timeline: "You finished 3/10 lessons"
 
 ---
 
@@ -61,5 +61,39 @@ An AI-powered beginner coding platform inspired by CodeCademy, designed to help 
 - Soft colors, clean interface
 - Interactive steps with animations
 - AI messages styled like chat (like ChatGPT)
+
+---
+
+## 🔌 Setting up the Project
+
+To run the AI assistant:
+
+1. Clone the repository:
+   ```
+   git clone <repository-url>
+   ```
+
+2. Install dependencies:
+   ```
+   cd Server
+   npm install
+   cd ../Client
+   npm install
+   ```
+
+3. Start the server:
+   ```
+   cd Server
+   npm run dev
+   ```
+
+4. Start the client:
+   ```
+   cd Client
+   npm run dev
+   ```
+
+5. Access the application:
+   - Open your browser and go to: http://localhost:5173
 
 ---

@@ -1,0 +1,45 @@
+.code-block {
+  margin: 1rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #1E1E1E;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #2D2D2D;
+  color: #E0E0E0;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 14px;
+}
+
+.code-title {
+  font-weight: 500;
+}
+
+.copy-button {
+  background-color: transparent;
+  border: 1px solid #606060;
+  color: #E0E0E0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copy-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #909090;
+}
+
+/* Hide line numbers for small screens */
+@media (max-width: 600px) {
+  .linenumber {
+    display: none;
+  }
+} 
